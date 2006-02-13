@@ -39,8 +39,8 @@ AnnAdaptor::~AnnAdaptor(){
 void AnnAdaptor::query(af::ref<ANNcoord> data){
   SCITBX_ASSERT (data.size()%dimension == 0);
   af::ref<ANNcoord>::iterator queryPt = data.begin();
-  nn = af::flex_int(data.size()*k);
-  distances = af::flex_double(data.size()*k);
+  nn = af::flex_int(data.size()*k/dimension);
+  distances = af::flex_double(data.size()*k/dimension);
   af::shared<ANNidx>::iterator nnIdx = nn.begin();
   af::shared<ANNdist>::iterator dists = distances.begin();
   for (;queryPt!=data.end();queryPt+=dimension,nnIdx+=k,dists+=k){
