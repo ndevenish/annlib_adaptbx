@@ -51,5 +51,5 @@ def check_memory():
 if __name__=="__main__":
   assert gethash(
     excercise_nearest_neighbor() ) == 'E486456DC3A225C40FE8A3A9D9A760E9'
-  check_memory()
+  #check_memory()
   print "OK"
