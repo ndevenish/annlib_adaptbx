@@ -15,7 +15,7 @@ BOOST_PYTHON_MODULE(annlib_ext)
    class_<dummy>("_dummy", no_init);
 #endif
    class_<AnnAdaptor >("AnnAdaptor",
-    init<af::ref<ANNcoord>const&,int >())
+    init<af::shared<ANNcoord>,int >())
      .def("query",&AnnAdaptor::query)
      .def_readonly("nn",&AnnAdaptor::nn)
      .def_readonly("distances",&AnnAdaptor::distances)
