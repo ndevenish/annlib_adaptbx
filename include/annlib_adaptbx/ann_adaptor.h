@@ -1,6 +1,6 @@
 #ifndef ANNLIB_ANN_AD_H
 #define ANNLIB_ANN_AD_H
-#include <boost/tr1/memory.hpp>
+#include <boost/shared_ptr.hpp>
 #include <scitbx/array_family/flex_types.h>
 #include <scitbx/array_family/shared.h>
 #include <ANN/ANN.h>
@@ -10,7 +10,7 @@ namespace af = scitbx::af;
 namespace annlib_adaptbx {
 
 class AnnAdaptor {
-  typedef std::tr1::shared_ptr<ANNkd_tree> annptr;
+  typedef boost::shared_ptr<ANNkd_tree> annptr;
  private:
   annptr kdTree;
   int dimension;
