@@ -31,7 +31,9 @@ env = env_base.Copy(
   SHLINKFLAGS=env_etc.shlinkflags,
 )
 
-env.SharedLibrary(target='#lib/ann',
+if (env_etc.static_libraries): builder = env.StaticLibrary
+else:                          builder = env.SharedLibrary
+builder(target='#lib/ann',
   source = ["../annlib/src/ANN.cpp",
             "../annlib/src/bd_fix_rad_search.cpp",
             "../annlib/src/bd_pr_search.cpp",
