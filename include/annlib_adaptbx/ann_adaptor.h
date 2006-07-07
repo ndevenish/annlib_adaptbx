@@ -18,6 +18,7 @@ class AnnAdaptor {
   double eps;//error bound
   af::shared<ANNcoord> persist_data;
   af::shared<ANNcoord*> persist_ptr;
+  void constructor_core(af::shared<ANNcoord>,int);
 
  public:
   af::flex_int nn;//nearest neighbors
@@ -25,6 +26,8 @@ class AnnAdaptor {
 
  public:
   AnnAdaptor(af::shared<ANNcoord>,int);//coordinates & space dimension
+  AnnAdaptor(af::shared<ANNcoord>,int,int);//coordinates, space dimension
+                                           //and number of neighbors requested
   ~AnnAdaptor();
   void query(af::shared<ANNcoord>);//query coordinates
 };

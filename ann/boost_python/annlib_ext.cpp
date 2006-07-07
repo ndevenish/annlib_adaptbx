@@ -16,6 +16,7 @@ BOOST_PYTHON_MODULE(annlib_ext)
 #endif
    class_<AnnAdaptor >("AnnAdaptor",
     init<af::shared<ANNcoord>,int >())
+     .def(init<af::shared<ANNcoord>,int,int>((arg_("data"),arg_("dim"),arg_("k"))))
      .def("query",&AnnAdaptor::query)
      .def_readonly("nn",&AnnAdaptor::nn)
      .def_readonly("distances",&AnnAdaptor::distances)

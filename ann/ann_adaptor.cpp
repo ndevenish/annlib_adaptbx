@@ -10,7 +10,17 @@ AnnAdaptor::AnnAdaptor(
   af::shared<ANNcoord> data,int dimension):
   dimension(dimension),
   k(1),
-  eps(0.0){
+  eps(0.0){constructor_core(data,dimension);}
+
+AnnAdaptor::AnnAdaptor(
+  af::shared<ANNcoord> data,int dimension,int nk):
+  dimension(dimension),
+  k(nk),
+  eps(0.0){constructor_core(data,dimension);}
+
+void
+AnnAdaptor::constructor_core(af::shared<ANNcoord> data,int dimension){
+  SCITBX_ASSERT (data.size() > 0);
   SCITBX_ASSERT (data.size()%dimension == 0);
   af::shared<ANNcoord>::iterator yyy = data.begin();  //double*
   af::shared<ANNcoord*> xxx(data.size()/dimension);
