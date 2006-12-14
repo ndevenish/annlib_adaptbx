@@ -18,16 +18,10 @@ env_etc.annlib_common_includes = [
   env_etc.annlib_adaptbx_include,
 ]
 
-env_etc.annlib_defines = []
-myccflags_base = env_etc.ccflags_base[:]
-myccflags_base.extend(env_etc.annlib_defines)
-mycxxflags_base = env_etc.cxxflags_base[:]
-mycxxflags_base.extend(env_etc.annlib_defines)
-
 env = env_base.Copy(
-  CCFLAGS=myccflags_base,
-  CXXFLAGS=mycxxflags_base,
-  SHCXXFLAGS=mycxxflags_base,
+  CCFLAGS=env_etc.ccflags_base,
+  CXXFLAGS=env_etc.cxxflags_base,
+  SHCXXFLAGS=env_etc.cxxflags_base,
   SHLINKFLAGS=env_etc.shlinkflags,
 )
 env_etc.disable_strict_aliasing(env=env)
@@ -57,8 +51,6 @@ if (not env_etc.no_boost_python):
   Import("env_no_includes_boost_python_ext")
 
   env_annlib_boost_python_ext = env_no_includes_boost_python_ext.Copy()
-  env_annlib_boost_python_ext.Replace(
-    SHCXXFLAGS=mycxxflags_base,)
   env_etc.disable_strict_aliasing(env=env_annlib_boost_python_ext)
 
   env_etc.include_registry.append(
