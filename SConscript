@@ -11,6 +11,7 @@ env_etc.annlib_adaptbx_include = env_etc.norm_join(
 env_etc.annlib_common_includes = [
   env_etc.libtbx_include,
   env_etc.scitbx_include,
+  env_etc.boost_adaptbx_include,
   env_etc.boost_include,
   env_etc.annlib_dist,    # for the adaptor cpp files
   env_etc.annlib_include[0],
