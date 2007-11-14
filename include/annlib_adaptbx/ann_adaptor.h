@@ -11,7 +11,7 @@ namespace annlib_adaptbx {
 
 class AnnAdaptor {
   typedef boost::shared_ptr<ANNkd_tree> annptr;
- private:
+ protected:
   annptr kdTree;
   int dimension;
   int k;//number of near neighbors
