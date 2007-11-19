@@ -25,7 +25,6 @@ env = env_base.Copy(
   SHCXXFLAGS=env_etc.cxxflags_base,
   SHLINKFLAGS=env_etc.shlinkflags,
 )
-env_etc.disable_strict_aliasing(env=env)
 
 if (env_etc.static_libraries): builder = env.StaticLibrary
 else:                          builder = env.SharedLibrary
@@ -52,7 +51,6 @@ if (not env_etc.no_boost_python):
   Import("env_no_includes_boost_python_ext")
 
   env_annlib_boost_python_ext = env_no_includes_boost_python_ext.Copy()
-  env_etc.disable_strict_aliasing(env=env_annlib_boost_python_ext)
 
   env_etc.include_registry.append(
     env=env_annlib_boost_python_ext,
