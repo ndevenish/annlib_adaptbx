@@ -13,14 +13,14 @@ def data_from_files():
   D = open(os.path.join(tests,"data.txt"))
   for line in D.xreadlines():  # x & y coordinates of reference set
     point = line.strip().split(" ")
-    data.push_back(float(point[0]))
-    data.push_back(float(point[1]))
+    data.append(float(point[0]))
+    data.append(float(point[1]))
 
   Q = open(os.path.join(tests,"query.txt"))
   for line in Q.xreadlines():  # x & y coordinates of query set
     point = line.strip().split(" ")
-    query.push_back(float(point[0]))
-    query.push_back(float(point[1]))
+    query.append(float(point[0]))
+    query.append(float(point[1]))
 
   return data,query
 
