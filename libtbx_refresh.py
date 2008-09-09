@@ -6,7 +6,7 @@ if (self.env.is_ready_for_build()):
   print message
   for search_mode in ["self_include"]:
     for item in generate_all.yield_includes(search_mode):
-      print item
+      #print item
       G = open(item['src'],'r')
       lines = G.readlines()
       G.close()
@@ -16,7 +16,7 @@ if (self.env.is_ready_for_build()):
       F.close()
 
     for item in generate_all.yield_src_includes(search_mode):
-      print item
+      #print item
       G = open(item['src'],'r')
       lines = G.readlines()
       G.close()
@@ -26,7 +26,7 @@ if (self.env.is_ready_for_build()):
       F.close()
 
     for item in generate_all.yield_src(search_mode):
-      print item
+      #print item
       G = open(item['src'],'r')
       lines = G.readlines()
       G.close()
