@@ -21,4 +21,11 @@ BOOST_PYTHON_MODULE(annlib_ext)
      .def_readonly("nn",&AnnAdaptor::nn)
      .def_readonly("distances",&AnnAdaptor::distances)
   ;
+   class_<AnnAdaptorSelfInclude >("AnnAdaptorSelfInclude",
+    init<af::shared<annself_include::ANNcoord>,int >())
+     .def(init<af::shared<annself_include::ANNcoord>,int,int>((arg_("data"),arg_("dim"),arg_("k"))))
+     .def("query",&AnnAdaptorSelfInclude::query)
+     .def_readonly("nn",&AnnAdaptorSelfInclude::nn)
+     .def_readonly("distances",&AnnAdaptorSelfInclude::distances)
+  ;
 }
