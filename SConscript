@@ -6,7 +6,7 @@ env_etc.annlib_include = [env_etc.norm_join(env_etc.annlib_dist,"src"),
                           env_etc.norm_join(env_etc.annlib_dist,"include")]
 env_etc.annlib_adaptbx_dist = libtbx.env.dist_path("annlib_adaptbx")
 env_etc.annlib_adaptbx_include = env_etc.norm_join(
-                  env_etc.annlib_adaptbx_dist,"include")
+                  libtbx.env.under_build("annlib_adaptbx"),"include")
 
 env_etc.annlib_common_includes = [
   env_etc.libtbx_include,

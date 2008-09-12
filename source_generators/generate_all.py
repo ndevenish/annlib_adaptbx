@@ -1,14 +1,17 @@
 import __future__
 import os,copy
 
-import annlib_adaptbx
+import annlib_adaptbx,libtbx
+
+annlib_under_build = libtbx.env.under_build("annlib_adaptbx")
 annlib_adaptbx_dir = os.path.dirname(annlib_adaptbx.__file__)
-annlib_adaptbx_include = os.path.join(annlib_adaptbx_dir,"include")
+annlib_under_build_include = os.path.join(annlib_under_build,"include")
 annlib_dir = os.path.join(os.path.dirname(annlib_adaptbx_dir),"annlib")
 
 def yield_includes(search_mode):
-  annlib_mode_include = os.path.join(annlib_adaptbx_include,
+  annlib_mode_include = os.path.join(annlib_under_build_include,
      "ANN"+search_mode.upper())
+  if not os.path.isdir(annlib_under_build_include): os.mkdir(annlib_under_build_include)
   if not os.path.isdir(annlib_mode_include): os.mkdir(annlib_mode_include)
   annlib_include = os.path.join(annlib_dir,"include")
   ANN_include = os.path.join(annlib_include,"ANN")
@@ -17,7 +20,7 @@ def yield_includes(search_mode):
            'dst':os.path.join(annlib_mode_include,item)}
 
 def yield_src_includes(search_mode):
-  annlib_mode_src = os.path.join(annlib_adaptbx_dir,
+  annlib_mode_src = os.path.join(annlib_under_build,
      search_mode)
   if not os.path.isdir(annlib_mode_src): os.mkdir(annlib_mode_src)
   annlib_src = os.path.join(annlib_dir,"src")
@@ -27,7 +30,7 @@ def yield_src_includes(search_mode):
              'dst':os.path.join(annlib_mode_src,item)}
 
 def yield_src(search_mode):
-  annlib_mode_src = os.path.join(annlib_adaptbx_dir,
+  annlib_mode_src = os.path.join(annlib_under_build,
      search_mode)
   if not os.path.isdir(annlib_mode_src): os.mkdir(annlib_mode_src)
   annlib_src = os.path.join(annlib_dir,"src")
