@@ -11,8 +11,8 @@ annlib_dir = os.path.join(os.path.dirname(annlib_adaptbx_dir),"annlib")
 def yield_includes(search_mode):
   annlib_mode_include = os.path.join(annlib_under_build_include,
      "ANN"+search_mode.upper())
-  if not os.path.isdir(annlib_under_build_include): os.mkdir(annlib_under_build_include)
-  if not os.path.isdir(annlib_mode_include): os.mkdir(annlib_mode_include)
+  if not os.path.isdir(annlib_under_build_include): os.makedirs(annlib_under_build_include)
+  if not os.path.isdir(annlib_mode_include): os.makedirs(annlib_mode_include)
   annlib_include = os.path.join(annlib_dir,"include")
   ANN_include = os.path.join(annlib_include,"ANN")
   for item in os.listdir(ANN_include):
@@ -22,7 +22,7 @@ def yield_includes(search_mode):
 def yield_src_includes(search_mode):
   annlib_mode_src = os.path.join(annlib_under_build,
      search_mode)
-  if not os.path.isdir(annlib_mode_src): os.mkdir(annlib_mode_src)
+  if not os.path.isdir(annlib_mode_src): os.makedirs(annlib_mode_src)
   annlib_src = os.path.join(annlib_dir,"src")
   for item in os.listdir(annlib_src):
     if item.find(".h")>0:
@@ -32,7 +32,7 @@ def yield_src_includes(search_mode):
 def yield_src(search_mode):
   annlib_mode_src = os.path.join(annlib_under_build,
      search_mode)
-  if not os.path.isdir(annlib_mode_src): os.mkdir(annlib_mode_src)
+  if not os.path.isdir(annlib_mode_src): os.makedirs(annlib_mode_src)
   annlib_src = os.path.join(annlib_dir,"src")
   for item in os.listdir(annlib_src):
     if item.find(".cpp")>0:
