@@ -5,8 +5,9 @@ env_etc.annlib_dist = libtbx.env.dist_path("annlib")
 env_etc.annlib_include = [env_etc.norm_join(env_etc.annlib_dist,"src"),
                           env_etc.norm_join(env_etc.annlib_dist,"include")]
 env_etc.annlib_adaptbx_dist = libtbx.env.dist_path("annlib_adaptbx")
-env_etc.annlib_adaptbx_include = env_etc.norm_join(
-                  libtbx.env.under_build("annlib_adaptbx"),"include")
+env_etc.annlib_adaptbx_include = [
+  libtbx.env.under_dist("annlib_adaptbx", "include"),
+  libtbx.env.under_build("annlib_adaptbx/include")]
 
 env_etc.annlib_common_includes = [
   env_etc.libtbx_include,
@@ -16,7 +17,8 @@ env_etc.annlib_common_includes = [
   env_etc.annlib_dist,    # for the adaptor cpp files
   env_etc.annlib_include[0],
   env_etc.annlib_include[1],
-  env_etc.annlib_adaptbx_include,
+  env_etc.annlib_adaptbx_include[0],
+  env_etc.annlib_adaptbx_include[1],
 ]
 
 env = env_base.Copy(
