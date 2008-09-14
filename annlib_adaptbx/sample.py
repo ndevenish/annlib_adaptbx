@@ -1,6 +1,7 @@
-import math,os,StringIO,md5
+import math,os,StringIO
 from annlib_ext import AnnAdaptor
 from scitbx.array_family import flex
+from libtbx.utils import hashlib_md5
 
 import libtbx.load_env
 dist_dir = libtbx.env.dist_path("annlib_adaptbx")
@@ -39,7 +40,7 @@ def excercise_nearest_neighbor():
   return S.getvalue()
 
 def gethash(longstring):
-  m = md5.new()
+  m = hashlib_md5()
   m.update(longstring)
   return "".join(["%02X"%ord(i) for i in m.digest()])
 
