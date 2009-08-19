@@ -21,12 +21,13 @@ env_etc.annlib_common_includes = [
   env_etc.annlib_adaptbx_include[1],
 ]
 
-env = env_base.Copy(
-  CCFLAGS=env_etc.ccflags_base,
-  CXXFLAGS=env_etc.cxxflags_base,
-  SHCXXFLAGS=env_etc.cxxflags_base,
-  SHLINKFLAGS=env_etc.shlinkflags,
-)
+env = env_base.Clone(
+  SHLINKFLAGS=env_etc.shlinkflags)
+if (libtbx.manual_date_stamp < 20090819):
+  # XXX backward compatibility 2009-08-19
+  env.Replace(CCFLAGS=env_etc.ccflags_base)
+  env.Replace(CXXFLAGS=env_etc.cxxflags_base)
+  env.Replace(SHCXXFLAGS=env_etc.cxxflags_base)
 
 if (env_etc.static_libraries): builder = env.StaticLibrary
 else:                          builder = env.SharedLibrary
@@ -66,7 +67,7 @@ builder(target='#lib/ann',
 if (not env_etc.no_boost_python):
   Import("env_no_includes_boost_python_ext")
 
-  env_annlib_boost_python_ext = env_no_includes_boost_python_ext.Copy()
+  env_annlib_boost_python_ext = env_no_includes_boost_python_ext.Clone()
 
   env_etc.include_registry.append(
     env=env_annlib_boost_python_ext,
