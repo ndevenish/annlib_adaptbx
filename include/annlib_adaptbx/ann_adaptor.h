@@ -26,6 +26,7 @@ class AnnAdaptor {
   af::flex_double distances;//nearest distances
 
  public:
+  inline AnnAdaptor(){}
   AnnAdaptor(af::shared<ANNcoord>,int);//coordinates & space dimension
   AnnAdaptor(af::shared<ANNcoord>,int,int);//coordinates, space dimension
                                            //and number of neighbors requested
