@@ -1,7 +1,8 @@
 import __future__
 import os,copy
 
-import annlib_adaptbx,libtbx
+import annlib_adaptbx
+import libtbx.load_env
 
 annlib_under_build = libtbx.env.under_build("annlib_adaptbx")
 annlib_adaptbx_dir = os.path.dirname(annlib_adaptbx.__file__)
