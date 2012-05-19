@@ -50,6 +50,7 @@ class AnnAdaptorSelfInclude {
   af::flex_double distances;//nearest distances
 
  public:
+  inline AnnAdaptorSelfInclude(){}
   AnnAdaptorSelfInclude(af::shared<annself_include::ANNcoord>,int);//coordinates & space dimension
   AnnAdaptorSelfInclude(af::shared<annself_include::ANNcoord>,int,int);//coordinates, space dimension
                                            //and number of neighbors requested
